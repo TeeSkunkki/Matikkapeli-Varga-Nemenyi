@@ -8,6 +8,7 @@ public class Tarkista : MonoBehaviour
 {
     public Button TarkistaButton;
     public PelaajanValinta PelaajanValinta;
+    private SeuraavaTaso SeuraavaTaso;
     public GameObject UILause;
     public GameObject UIPisteet;
     private GameObject[] Paikat;
@@ -28,6 +29,10 @@ public class Tarkista : MonoBehaviour
     private int Viimeinen = 5;
     private int s = 0;
 
+    void Awake(){
+        SeuraavaTaso = GameObject.Find("Seuraava").GetComponent<SeuraavaTaso>();
+        Pisteet = SeuraavaTaso.Pisteet;
+    }
 
     void Start(){
         TarkistaButton.onClick.AddListener(Tarkistus);

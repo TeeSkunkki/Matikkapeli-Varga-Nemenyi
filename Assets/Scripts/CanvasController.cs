@@ -41,18 +41,13 @@ public class CanvasController : MonoBehaviour
                 Object.GetComponent<TextMeshProUGUI>().fontSize = MainCamera.orthographicSize / 7;
             }
 
-            if(Object.name == "Button"){
-                
+            if(Object.name.StartsWith("Button")){
+                Object.GetComponent<RectTransform>().sizeDelta = new Vector2(Canvas.sizeDelta.x / 10, Canvas.sizeDelta.x / 10);
+                Object.GetComponent<RectTransform>().anchoredPosition = new Vector2(Object.GetComponent<RectTransform>().sizeDelta.x * float.Parse(Object.name[7].ToString()), Object.GetComponent<RectTransform>().sizeDelta.x * -1);
+                Object.transform.GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = MainCamera.orthographicSize / 7;
             }
         }
         UILause.sizeDelta = new Vector2(Canvas.sizeDelta.x, Canvas.sizeDelta.y / 2);
         UIPisteet.sizeDelta = new Vector2(Canvas.sizeDelta.x, Canvas.sizeDelta.y / 6);
-    }
-
-    void Buttons(GameObject[] Buttonit){
-        Object.GetComponent<RectTransform>().sizeDelta = new Vector2(Canvas.sizeDelta.x / 10, Canvas.sizeDelta.x / 10);
-                Object.GetComponent<RectTransform>().anchoredPosition = new Vector2(Object.GetComponent<RectTransform>().sizeDelta.x + ViimeinenPButton, Object.GetComponent<RectTransform>().sizeDelta.x * -1);
-                ViimeinenPButton = Object.GetComponent<RectTransform>().anchoredPosition.x;
-                Object.transform.GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = MainCamera.orthographicSize / 7;
     }
 }
