@@ -16,6 +16,7 @@ public class Palat : MonoBehaviour
         InitialPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
         RB = gameObject.GetComponent<Rigidbody2D>();
         SR = gameObject.GetComponent<SpriteRenderer>();
+        gameObject.GetComponent<RectTransform>().localScale = new Vector3(gameObject.GetComponent<RectTransform>().localScale.x / 2, gameObject.GetComponent<RectTransform>().localScale.y / 2 * Arvo, gameObject.GetComponent<RectTransform>().localScale.z / 2);
     }
 
     // Update is called once per frame
