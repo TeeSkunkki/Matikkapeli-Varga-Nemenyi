@@ -8,12 +8,15 @@ public class Kortti : MonoBehaviour
     private bool Kaiffarimasiina = true;
     private Quaternion Kaannetty;
     private Quaternion InitialRotation;
+    private PisteLaskenta PisteLaskenta;
+    public string KortinNimi;
 
 
     // Start is called before the first frame update
     void Start(){
         Kaannetty = GameObject.Find("Kaannetty").GetComponent<RectTransform>().rotation;
         InitialRotation = gameObject.GetComponent<RectTransform>().rotation;
+        PisteLaskenta = GameObject.Find("Kaannetty").GetComponent<PisteLaskenta>();
     }
 
     // Update is called once per frame
@@ -23,8 +26,9 @@ public class Kortti : MonoBehaviour
 
     private void OnMouseDown(){
         if(Kaiffarimasiina){
-            StartCoroutine("LisaaTavoite");
             Kaiffarimasiina = false;
+            StartCoroutine("LisaaTavoite");
+            PisteLaskenta.Tarkista(KortinNimi);
         }
     }
 

@@ -118,6 +118,7 @@ public class SpriteManager : MonoBehaviour
         foreach (GameObject kortti in Grid){
             StringPath = SpriteStringx[kortti.name[0] - 49] + "_" + SpriteStringy[kortti.name[1] - 49];
             kortti.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(StringPath);
+            kortti.GetComponent<Kortti>().KortinNimi = SpriteStringx[kortti.name[0] - 49] + "_" + SpriteStringy[kortti.name[1] - 49];
         }
     }
 }

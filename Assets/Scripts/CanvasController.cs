@@ -39,6 +39,7 @@ public class CanvasController : MonoBehaviour
 
             if(Object.GetComponent<TextMeshProUGUI>() != null){
                 Object.GetComponent<TextMeshProUGUI>().fontSize = MainCamera.orthographicSize / 7;
+                Object.GetComponent<RectTransform>().sizeDelta = new Vector2(Canvas.sizeDelta.x / 60, Canvas.sizeDelta.y / 60);
             }
 
             if(Object.name.StartsWith("Button")){

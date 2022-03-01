@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!50 &13989024
 Rigidbody2D:
   serializedVersion: 4
@@ -307,8 +308,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1.0672913, y: 0.26679993}
+  m_SizeDelta: {x: -29.887, y: -8.0055}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131101009
 MonoBehaviour:
@@ -373,7 +374,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -459,6 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!50 &149754721
 Rigidbody2D:
   serializedVersion: 4
@@ -676,9 +678,9 @@ RectTransform:
   m_Father: {fileID: 1604132941}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 308}
   m_SizeDelta: {x: 547.6, y: 308}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &200172476
@@ -736,7 +738,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -764,7 +766,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 298.40012, z: 0, w: -54.065674}
+  m_margin: {x: 0, y: 108.053116, z: 0, w: -391.30768}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1276,6 +1278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!1 &481065094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,6 +1773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!1 &814061612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,6 +1924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!1 &881411252
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,6 +2075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!1 &960066609
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,9 +2321,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2660c251450f24bb95a843d27ad83a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpriteManager: {fileID: 0}
-  UILause: {fileID: 0}
-  UIPisteet: {fileID: 0}
+  SpriteManager: {fileID: 987744074}
+  UILause: {fileID: 200172475}
+  UIPisteet: {fileID: 1847683442}
 --- !u!1 &1170463580
 GameObject:
   m_ObjectHideFlags: 0
@@ -2329,6 +2335,7 @@ GameObject:
   - component: {fileID: 1170463583}
   - component: {fileID: 1170463581}
   - component: {fileID: 1170463582}
+  - component: {fileID: 1170463584}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2401,6 +2408,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1170463584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170463580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d342c09e084754c8ce5f1f0e473579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1175866512
 GameObject:
   m_ObjectHideFlags: 0
@@ -2638,6 +2657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!1 &1222427545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2788,6 +2808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!1 &1288835710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2938,6 +2959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!1 &1297496863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3227,6 +3249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!1 &1520582310
 GameObject:
   m_ObjectHideFlags: 0
@@ -3279,6 +3302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!50 &1520582313
 Rigidbody2D:
   serializedVersion: 4
@@ -3516,6 +3540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!50 &1597166108
 Rigidbody2D:
   serializedVersion: 4
@@ -4032,6 +4057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!1 &1847683441
 GameObject:
   m_ObjectHideFlags: 0
@@ -4152,7 +4178,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -79.57477}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4316,6 +4342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!1 &1988601932
 GameObject:
   m_ObjectHideFlags: 0
@@ -4466,6 +4493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!1 &2012159489
 GameObject:
   m_ObjectHideFlags: 0
@@ -4616,6 +4644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303c7d971ccf7fa45963ac291e1e0f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KortinNimi: 
 --- !u!1 &2118411412
 GameObject:
   m_ObjectHideFlags: 0
@@ -4635,7 +4664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2118411413
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4653,8 +4682,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -44.576904, y: 15}
-  m_SizeDelta: {x: 89.15381, y: 30}
+  m_AnchoredPosition: {x: -56, y: 16}
+  m_SizeDelta: {x: 66.204834, y: 21.4608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2118411414
 MonoBehaviour:
@@ -4665,11 +4694,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2118411412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53712e58e8c54a54d84b08898e0f2246, type: 3}
+  m_Script: {fileID: 11500000, guid: 81d959099ce0dda4fbc314fb6e81530a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Seuraava: {fileID: 2118411415}
-  Pisteet: 0
 --- !u!114 &2118411415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4713,7 +4740,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2118411416}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2118411414}
+        m_TargetAssemblyTypeName: UudetKortit, Assembly-CSharp
+        m_MethodName: Uudet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2118411416
 MonoBehaviour:
   m_ObjectHideFlags: 0
