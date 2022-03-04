@@ -84,15 +84,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3268}
     - Class: 114
-      Script: {instanceID: 3380}
+      Script: {instanceID: 3382}
     - Class: 114
-      Script: {instanceID: 4194}
+      Script: {instanceID: 4198}
     - Class: 114
-      Script: {instanceID: 4718}
+      Script: {instanceID: 4722}
     - Class: 114
-      Script: {instanceID: 5094}
+      Script: {instanceID: 5098}
     - Class: 114
-      Script: {instanceID: 35880}
+      Script: {instanceID: 5462}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -151,19 +151,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3268}
     - Class: 114
-      Script: {instanceID: 3380}
+      Script: {instanceID: 3382}
     - Class: 114
-      Script: {instanceID: 3730}
+      Script: {instanceID: 3410}
     - Class: 114
-      Script: {instanceID: 4194}
+      Script: {instanceID: 3734}
     - Class: 114
-      Script: {instanceID: 4530}
+      Script: {instanceID: 4198}
     - Class: 114
-      Script: {instanceID: 4616}
+      Script: {instanceID: 4534}
     - Class: 114
-      Script: {instanceID: 5320}
+      Script: {instanceID: 4620}
     - Class: 114
-      Script: {instanceID: 35886}
+      Script: {instanceID: 5324}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -222,15 +222,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3268}
     - Class: 114
-      Script: {instanceID: 3380}
+      Script: {instanceID: 3328}
     - Class: 114
-      Script: {instanceID: 3778}
+      Script: {instanceID: 3382}
     - Class: 114
-      Script: {instanceID: 4194}
+      Script: {instanceID: 3410}
     - Class: 114
-      Script: {instanceID: 31296}
+      Script: {instanceID: 3782}
     - Class: 114
-      Script: {instanceID: 35886}
+      Script: {instanceID: 4198}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -342,7 +342,7 @@ ScriptsOnlyBuild:
     className: Paikka
   - hash:
       serializedVersion: 2
-      Hash: 2bff23acc07bc6b5b24e04ecef37c567
+      Hash: b22f04157775448a0f793864879a8678
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PisteLaskenta
@@ -510,6 +510,12 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UudetKortit
+  - hash:
+      serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -526,6 +532,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.SpriteShape.Runtime.dll
     namespaceName: UnityEngine.U2D
     className: SpriteShapeController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TakaisinMainMenu
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -720,7 +732,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: 056803e53176e5fd3e1d2f2f05b57d5d
+      Hash: 64e908488b3dabd5eba8d030a5c7d565
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Tarkista
@@ -804,6 +816,12 @@ ScriptsOnlyBuild:
     className: Kohde
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MainMenu
+  - hash:
+      serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -832,24 +850,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: UudetKortit
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MainMenu
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TakaisinMainMenu
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu.unity

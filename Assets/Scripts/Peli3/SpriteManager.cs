@@ -22,7 +22,7 @@ public class SpriteManager : MonoBehaviour
             Grid[i] = GameObject.FindGameObjectsWithTag("Pala")[i];    
         }
 
-        SpriteLength = Directory.GetFiles("Assets/Scripts/Peli3/Sprite/Resources").Length / 2;
+        SpriteLength = Directory.GetFiles("Assets/Resources").Length / 2;
         SpriteListx = new string[SpriteLength];
         SpriteListy = new string[SpriteLength];
 
@@ -30,7 +30,7 @@ public class SpriteManager : MonoBehaviour
         bool check2 = true;
         int Paikka1 = 0;
         int Paikka2 = 0;
-        foreach (string kuva in Directory.GetFiles("Assets/Scripts/Peli3/Sprite/Resources")){
+        foreach (string kuva in Directory.GetFiles("Assets/Resources")){
             string[] temp = new string[2];
             if(!kuva.EndsWith(".meta")){
                 temp = Path.GetFileNameWithoutExtension(kuva).Split('_');

@@ -6,16 +6,23 @@ using UnityEngine.UI;
 
 public class Kohde : MonoBehaviour
 {
-    public float kohde = 0f;       //Value jonka peli arpoo
+    public float kohde = 0f;       //Value jonka peli arpoo 1-16
     private float Tavoite = 0f;     //Value johon Sliderin liikkuminen päättyy
     public float Yhteensa = 0f;    //Value joka Slider on nyt
     private float Vali = 0f;        //Value jolla Slider liikkuu lineaarisesti (0-1)
     private float ValiYhteensa = 0f;//Value josta Slider aloittaa liikkumisen
-    public Slider YhteensaSlider;
+    private int Pos = 11;
+    private int LiikkuvaSlider = 0;
+    public Slider[] YhteensaSlider;
 
 
     // Start is called before the first frame update
     void Start(){
+        //YhteensaSlider = gameObject.transform.GetChild(0).GetComponentsInChildren<Slider>();
+        YhteensaSlider = new Slider[11];
+        for (int i = 0; i < gameObject.transform.GetComponentsInChildren<Canvas>().Length; i++){
+            YhteensaSlider[i] = gameObject.transform.GetChild(i).GetChild(0).GetComponent<Slider>();
+        }
         gameObject.GetComponent<RectTransform>().localScale = new Vector3(gameObject.GetComponent<RectTransform>().localScale.x, gameObject.GetComponent<RectTransform>().localScale.y * kohde, gameObject.GetComponent<RectTransform>().localScale.z);
         //YhteensaSlider.highValue = kohde;
     }
@@ -31,13 +38,12 @@ public class Kohde : MonoBehaviour
         if(Vali == 1f){
             Vali = 0f;
         }*/
-
-        YhteensaSlider.value = Yhteensa;
     }
 
     void OnTriggerStay2D(Collider2D Pala){
         if(!Input.GetMouseButton(0)){
             Tavoite += Pala.GetComponent<Palat>().Arvo;
+            LiikkuvaSlider = (int)Pala.GetComponent<Palat>().Arvo;
             Pala.GetComponent<Palat>().MoveTransform();
             StartCoroutine("LisaaTavoite");
         }
@@ -48,6 +54,7 @@ public class Kohde : MonoBehaviour
                 yield return new WaitForSeconds(0.001f);
                 Vali += Time.deltaTime * 1f;
                 Yhteensa = Mathf.Lerp(ValiYhteensa, Tavoite, Vali);
+                YhteensaSlider[LiikkuvaSlider - 1].value = Yhteensa;
             }
         Debug.Log("Yhteensa = " + Yhteensa);
         Debug.Log("ValiYhteensa = " + ValiYhteensa);

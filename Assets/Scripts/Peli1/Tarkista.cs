@@ -8,6 +8,7 @@ public class Tarkista : MonoBehaviour
 {
     public Button TarkistaButton;
     public PelaajanValinta PelaajanValinta;
+    public CanvasController CanvasController;
     private SeuraavaTaso SeuraavaTaso;
     public GameObject UILause;
     public GameObject UIPisteet;
@@ -362,6 +363,7 @@ public class Tarkista : MonoBehaviour
                         Lause = "";
                         Debug.Log("Lause nollattu");
                         SeuraavaTaso.gameObject.SetActive(true);
+                        CanvasController.UudetKortitNappi(SeuraavaTaso.gameObject);
                     }else{
                     Vastaukset[i] = VaraVastaukset[i];
                     }

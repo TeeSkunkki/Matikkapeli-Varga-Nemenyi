@@ -7,6 +7,7 @@ using TMPro;
 public class PisteLaskenta : MonoBehaviour
 {
     public SpriteManager SpriteManager;
+    public CanvasController CanvasController;
     public RectTransform UILause;
     public RectTransform UIPisteet;
     private GameObject Seuraava;
@@ -54,6 +55,7 @@ public class PisteLaskenta : MonoBehaviour
                 UIPisteet.GetComponent<TextMeshProUGUI>().text = Pisteet.ToString();
                 UILause.GetComponent<TextMeshProUGUI>().text = "Peli päättyi";
                 Seuraava.SetActive(true);
+                CanvasController.UudetKortitNappi(Seuraava);
             }
         }else{
             Lista.Remove(Tarkistettava);

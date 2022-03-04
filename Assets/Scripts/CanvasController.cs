@@ -47,8 +47,22 @@ public class CanvasController : MonoBehaviour
                 Object.GetComponent<RectTransform>().anchoredPosition = new Vector2(Object.GetComponent<RectTransform>().sizeDelta.x * float.Parse(Object.name[7].ToString()), Object.GetComponent<RectTransform>().sizeDelta.x * -1);
                 Object.transform.GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = MainCamera.orthographicSize / 7;
             }
+
+            if(Object.name.StartsWith("Peli")){
+                Object.GetComponent<RectTransform>().sizeDelta = new Vector2(Canvas.sizeDelta.x / 7, Canvas.sizeDelta.y / 7);
+                Object.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, Object.GetComponent<RectTransform>().sizeDelta.y * float.Parse(Object.name[4].ToString()) + 5f);
+                Object.transform.GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = MainCamera.orthographicSize / 7;
+            }
         }
         UILause.sizeDelta = new Vector2(Canvas.sizeDelta.x, Canvas.sizeDelta.y / 2);
+        UILause.anchoredPosition = new Vector2(0, Canvas.sizeDelta.y / 2);
         UIPisteet.sizeDelta = new Vector2(Canvas.sizeDelta.x, Canvas.sizeDelta.y / 6);
+        UIPisteet.anchoredPosition = new Vector2(0, Canvas.sizeDelta.y / 6);
+    }
+
+    public void UudetKortitNappi(GameObject Object){
+        Object.GetComponent<RectTransform>().sizeDelta = new Vector2(Canvas.sizeDelta.x / 6, Canvas.sizeDelta.y / 8);
+        Object.GetComponent<RectTransform>().anchoredPosition = new Vector2(Object.GetComponent<RectTransform>().sizeDelta.x * -1.1f, Object.GetComponent<RectTransform>().sizeDelta.y * 1.1f);
+        Object.transform.GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = MainCamera.orthographicSize / 7;
     }
 }
