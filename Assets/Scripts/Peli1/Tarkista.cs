@@ -363,7 +363,7 @@ public class Tarkista : MonoBehaviour
                         Lause = "";
                         Debug.Log("Lause nollattu");
                         SeuraavaTaso.gameObject.SetActive(true);
-                        CanvasController.UudetKortitNappi(SeuraavaTaso.gameObject);
+                        //CanvasController.UudetKortitNappi(SeuraavaTaso.gameObject);
                     }else{
                     Vastaukset[i] = VaraVastaukset[i];
                     }
