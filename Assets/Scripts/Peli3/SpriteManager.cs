@@ -33,7 +33,7 @@ public class SpriteManager : MonoBehaviour
         int Paikka2 = 0;
         foreach (string kuva in Directory.GetFiles("Assets/Resources")){
             string[] temp = new string[2];
-            if(!kuva.EndsWith(".meta")){
+            if(kuva.EndsWith(".png")){
                 temp = Path.GetFileNameWithoutExtension(kuva).Split('_');
                 for (int i = 0; i < SpriteListx.Length; i++){
                     if(SpriteListx[i] == temp[0]){
