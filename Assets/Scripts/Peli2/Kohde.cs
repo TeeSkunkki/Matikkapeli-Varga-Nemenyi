@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 //using UnityEngine.UIElements;
 
 public class Kohde : MonoBehaviour
@@ -12,36 +13,132 @@ public class Kohde : MonoBehaviour
     private float Vali = 0f;        //Value jolla Slider liikkuu lineaarisesti (0-1)
     private float ValiYhteensa = 0f;//Value josta Slider aloittaa liikkumisen
     private int Pos = 11;
+    private float Scale;
     private int LiikkuvaSlider = 0;
     private float kerroin = 0f;
+    private string[] kaytetyt;
+    private string[] KaytetytLauseet = new string[1];
+    private string[] VaraLauseet = new string[1];
     public Slider[] YhteensaSlider;
-
+    public TextMeshProUGUI Vastaus;
+    public TextMeshProUGUI Pisteet;
+    public GameObject Seuraava;
+    //public TMP_InputField PelaajanVastaus;
 
     // Start is called before the first frame update
     void Start(){
         //YhteensaSlider = gameObject.transform.GetChild(0).GetComponentsInChildren<Slider>();
+        Seuraava.SetActive(false);
         kohde = Mathf.Ceil(Random.Range(1f, 17f));
         kerroin = Mathf.Ceil(Random.Range(0.01f, 11f));
         YhteensaSlider = new Slider[11];
+        Vastaus.text = (kohde * kerroin).ToString() + " =";
         for (int i = 0; i < gameObject.transform.GetComponentsInChildren<Canvas>().Length; i++){
             YhteensaSlider[i] = gameObject.transform.GetChild(i).GetChild(0).GetComponent<Slider>();
             YhteensaSlider[i].maxValue = kohde;
         }
-        gameObject.GetComponent<RectTransform>().localScale = new Vector3(gameObject.GetComponent<RectTransform>().localScale.x, gameObject.GetComponent<RectTransform>().localScale.y * kohde, gameObject.GetComponent<RectTransform>().localScale.z);
+        Scale = gameObject.GetComponent<RectTransform>().localScale.y;
+        gameObject.GetComponent<RectTransform>().localScale = new Vector3(gameObject.GetComponent<RectTransform>().localScale.x, Scale * kohde, gameObject.GetComponent<RectTransform>().localScale.z);
+        //YhteensaSlider.highValue = kohde;
+    }
+
+    public void Uusi(){
+        //YhteensaSlider = gameObject.transform.GetChild(0).GetComponentsInChildren<Slider>();
+        KaytetytLauseet = new string[1];
+        Seuraava.SetActive(false);
+        kohde = Mathf.Ceil(Random.Range(1f, 17f));
+        kerroin = Mathf.Ceil(Random.Range(0.01f, 11f));
+        YhteensaSlider = new Slider[11];
+        Vastaus.text = (kohde * kerroin).ToString() + " =";
+        for (int i = 0; i < gameObject.transform.GetComponentsInChildren<Canvas>().Length; i++){
+            YhteensaSlider[i] = gameObject.transform.GetChild(i).GetChild(0).GetComponent<Slider>();
+            YhteensaSlider[i].maxValue = kohde;
+        }
+        gameObject.GetComponent<RectTransform>().localScale = new Vector3(gameObject.GetComponent<RectTransform>().localScale.x, Scale * kohde, gameObject.GetComponent<RectTransform>().localScale.z);
         //YhteensaSlider.highValue = kohde;
     }
 
     // Update is called once per frame
     void Update(){
-        /*if(Yhteensa != Tavoite){
-            Yhteensa = Mathf.Lerp(ValiYhteensa, Tavoite, Vali);
-        }else{
-            ValiYhteensa = Yhteensa;
+        if(KaytetytLauseet.Length > 1 && !Seuraava.activeSelf){
+            Seuraava.SetActive(true);
         }
+    }
 
-        if(Vali == 1f){
-            Vali = 0f;
-        }*/
+    public void Tarkista(string pelaajanVastaus){
+        foreach (string Lause in KaytetytLauseet){
+            if(Lause == pelaajanVastaus){
+                Debug.Log(Lause + " on jo käyetty");
+                return;
+            }
+        }
+        int TempInt = 0;
+        int paikka = 0;
+        bool check = true;
+        string[] TempString;
+        TempString = pelaajanVastaus.Split('+');
+        if(TempString.Length <= 1){
+            return;
+        }
+        kaytetyt = new string[TempString.Length];
+        foreach (string numero in TempString){
+            for (int i = 0; i < numero.Length; i++){
+                switch (numero[i])
+                {
+                    case '0':
+                        break;
+                    case '1':
+                        break;
+                    case '2':
+                        break;
+                    case '3':
+                        break;
+                    case '4':
+                        break;
+                    case '5':
+                        break;
+                    case '6':
+                        break;
+                    case '7':
+                        break;
+                    case '8':
+                        break;
+                    case '9':
+                        break;
+                    default:
+                        Debug.Log("Ei toimi");
+                        check = false;
+                        return;
+                }
+            }
+            foreach (string kaytetty in kaytetyt){
+                if(kaytetty == numero){
+                    check = false;
+                }
+            }
+            if(check){
+            kaytetyt[paikka] = numero;
+            TempInt += int.Parse(numero);
+            }else{
+                Debug.Log("check oli false");
+                return;
+            }
+        }
+        
+        if(TempInt == kohde * kerroin){
+            VaraLauseet = KaytetytLauseet;
+            KaytetytLauseet = new string[VaraLauseet.Length + 1];
+            for (int y = 0; y <= VaraLauseet.Length; y++){
+                if(VaraLauseet.Length == y){
+                    KaytetytLauseet[y] = pelaajanVastaus;
+                }else{
+                    KaytetytLauseet[y] = VaraLauseet[y];
+                }
+            }
+            TempInt = int.Parse(Pisteet.text);
+            TempInt += KaytetytLauseet.Length;
+            Pisteet.text = TempInt.ToString();
+        }
     }
 
     void OnTriggerStay2D(Collider2D Pala){
