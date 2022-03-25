@@ -12,9 +12,10 @@ public class Kohde : MonoBehaviour
     public float Yhteensa = 0f;    //Value joka Slider on nyt
     private float Vali = 0f;        //Value jolla Slider liikkuu lineaarisesti (0-1)
     private float ValiYhteensa = 0f;//Value josta Slider aloittaa liikkumisen
-    private int Pos = 11;
+    private int Pos = 10;
     private float Scale;
     private int LiikkuvaSlider = 0;
+    private Color Slidevari;
     private float kerroin = 0f;
     private string[] kaytetyt;
     private string[] KaytetytLauseet = new string[1];
@@ -22,6 +23,7 @@ public class Kohde : MonoBehaviour
     public Slider[] YhteensaSlider;
     public TextMeshProUGUI Vastaus;
     public TextMeshProUGUI Pisteet;
+    public TextMeshProUGUI UIKerroin;
     public GameObject Seuraava;
     //public TMP_InputField PelaajanVastaus;
 
@@ -31,6 +33,7 @@ public class Kohde : MonoBehaviour
         Seuraava.SetActive(false);
         kohde = Mathf.Ceil(Random.Range(1f, 17f));
         kerroin = Mathf.Ceil(Random.Range(0.01f, 11f));
+        UIKerroin.text = kerroin.ToString();
         YhteensaSlider = new Slider[11];
         Vastaus.text = (kohde * kerroin).ToString() + " =";
         for (int i = 0; i < gameObject.transform.GetComponentsInChildren<Canvas>().Length; i++){
@@ -44,10 +47,12 @@ public class Kohde : MonoBehaviour
 
     public void Uusi(){
         //YhteensaSlider = gameObject.transform.GetChild(0).GetComponentsInChildren<Slider>();
+        Alusta();
         KaytetytLauseet = new string[1];
         Seuraava.SetActive(false);
         kohde = Mathf.Ceil(Random.Range(1f, 17f));
         kerroin = Mathf.Ceil(Random.Range(0.01f, 11f));
+        UIKerroin.text = kerroin.ToString();
         YhteensaSlider = new Slider[11];
         Vastaus.text = (kohde * kerroin).ToString() + " =";
         for (int i = 0; i < gameObject.transform.GetComponentsInChildren<Canvas>().Length; i++){
@@ -111,11 +116,11 @@ public class Kohde : MonoBehaviour
                         return;
                 }
             }
-            foreach (string kaytetty in kaytetyt){
+            /*foreach (string kaytetty in kaytetyt){
                 if(kaytetty == numero){
                     check = false;
                 }
-            }
+            }*/
             if(check){
             kaytetyt[paikka] = numero;
             TempInt += int.Parse(numero);
@@ -145,8 +150,8 @@ public class Kohde : MonoBehaviour
         if(!Input.GetMouseButton(0)){
             if(kohde >= Tavoite + Pala.GetComponent<Palat>().Arvo){
                 Tavoite += Pala.GetComponent<Palat>().Arvo;
-                LiikkuvaSlider = (int)Pala.GetComponent<Palat>().Arvo;
-                Pala.GetComponent<Palat>().MoveTransform();
+                Slidevari = Pala.GetComponent<SpriteRenderer>().color;
+                Pala.GetComponent<Palat>().ResetTransform();
                 StartCoroutine("LisaaTavoite");
             }else{
                 Pala.GetComponent<Palat>().ResetTransform();
@@ -159,7 +164,7 @@ public class Kohde : MonoBehaviour
         Yhteensa = 0f;
         Vali = 0f;
         ValiYhteensa = 0f;
-        Pos = 11;
+        Pos = 10;
         foreach (Palat Pala in FindObjectsOfType<Palat>()){
             Pala.ResetTransform();
         }
@@ -169,12 +174,13 @@ public class Kohde : MonoBehaviour
     }
 
     IEnumerator LisaaTavoite(){
-        YhteensaSlider[LiikkuvaSlider - 1].transform.parent.gameObject.GetComponent<Canvas>().sortingOrder = Pos;
+        YhteensaSlider[Pos].transform.parent.gameObject.GetComponent<Canvas>().sortingOrder = Pos;
+        YhteensaSlider[Pos].transform.gameObject.GetComponent<Image>().color = Slidevari;
         while (Vali < 1f){
                 yield return new WaitForSeconds(0.001f);
-                Vali += Time.deltaTime * 1f;
+                Vali += Time.deltaTime * 2f;
                 Yhteensa = Mathf.Lerp(ValiYhteensa, Tavoite, Vali);
-                YhteensaSlider[LiikkuvaSlider - 1].value = Yhteensa;
+                YhteensaSlider[Pos].value = Yhteensa;
         }
         Pos--;
         Debug.Log("Yhteensa = " + Yhteensa);

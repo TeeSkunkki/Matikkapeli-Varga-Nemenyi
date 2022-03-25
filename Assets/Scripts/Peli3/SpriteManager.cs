@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Resources;
+using TMPro;
 
 public class SpriteManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class SpriteManager : MonoBehaviour
     private string[] SpriteListx;
     private string[] SpriteListy;
     private int SpriteLength;
+    public TextMeshProUGUI UILog;
 
     // Start is called before the first frame update
     void Start(){
@@ -120,6 +122,15 @@ public class SpriteManager : MonoBehaviour
             StringPath = SpriteStringx[kortti.name[0] - 49] + "_" + SpriteStringy[kortti.name[1] - 49];
             kortti.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(StringPath);
             kortti.GetComponent<Kortti>().KortinNimi = SpriteStringx[kortti.name[0] - 49] + "_" + SpriteStringy[kortti.name[1] - 49];
+            UILog.text += StringPath + " ";
         }
+        /*string tempT1;
+        foreach (string k1 in SpriteListx){
+            tempT1 += " " + k1;
+        }
+        foreach (string k1 in SpriteListy){
+            tempT1 += " " + k1;
+        }
+        UILog.text = tempT1;*/
     }
 }

@@ -25,11 +25,11 @@ public class Palat : MonoBehaviour
     }
 
     void OnMouseOver(){
-        SR.color = Color.red;
+        //SR.color = Color.red;
     }
 
     void OnMouseExit(){
-        SR.color = Color.black;
+        //SR.color = Color.black;
     }
 
     private void OnMouseDown(){

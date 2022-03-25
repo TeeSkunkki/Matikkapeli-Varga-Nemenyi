@@ -19,6 +19,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -33,6 +34,7 @@ ScriptsOnlyBuild:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
+    - TMPro.TMP_InputField
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
@@ -48,6 +50,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.LayoutElement
+    - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.Slider
   sceneClasses:
     Assets/Scenes/MainMenu.unity:
@@ -88,13 +92,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3382}
     - Class: 114
-      Script: {instanceID: 4198}
+      Script: {instanceID: 4200}
     - Class: 114
-      Script: {instanceID: 4722}
+      Script: {instanceID: 4724}
     - Class: 114
-      Script: {instanceID: 5098}
+      Script: {instanceID: 5100}
     - Class: 114
-      Script: {instanceID: 5462}
+      Script: {instanceID: 5464}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -157,15 +161,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3410}
     - Class: 114
-      Script: {instanceID: 3734}
+      Script: {instanceID: 3736}
     - Class: 114
-      Script: {instanceID: 4198}
+      Script: {instanceID: 4200}
     - Class: 114
-      Script: {instanceID: 4534}
+      Script: {instanceID: 4536}
     - Class: 114
-      Script: {instanceID: 4620}
+      Script: {instanceID: 4622}
     - Class: 114
-      Script: {instanceID: 5324}
+      Script: {instanceID: 5326}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -208,6 +212,10 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1540}
     - Class: 114
+      Script: {instanceID: 1568}
+    - Class: 114
+      Script: {instanceID: 1676}
+    - Class: 114
       Script: {instanceID: 1728}
     - Class: 114
       Script: {instanceID: 1840}
@@ -226,13 +234,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3410}
     - Class: 114
-      Script: {instanceID: 3858}
+      Script: {instanceID: 3860}
     - Class: 114
-      Script: {instanceID: 4198}
+      Script: {instanceID: 4200}
     - Class: 114
-      Script: {instanceID: 5324}
+      Script: {instanceID: 4698}
     - Class: 114
-      Script: {instanceID: 5440}
+      Script: {instanceID: 5442}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -297,9 +305,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3410}
     - Class: 114
-      Script: {instanceID: 3782}
+      Script: {instanceID: 3784}
     - Class: 114
-      Script: {instanceID: 4198}
+      Script: {instanceID: 4200}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -435,7 +443,7 @@ ScriptsOnlyBuild:
     className: Text
   - hash:
       serializedVersion: 2
-      Hash: 4fae35bacb897eafce41ee87f53979f2
+      Hash: daa99c990fea30675e0392007b3b740d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpriteManager
@@ -607,6 +615,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TakaisinMainMenu
+  - hash:
+      serializedVersion: 2
+      Hash: 828d1e70a461050a1a8eea885e3964e5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Seuraava
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -879,7 +893,7 @@ ScriptsOnlyBuild:
     className: BufferManager
   - hash:
       serializedVersion: 2
-      Hash: 55ba85b1fde31a2a7000fcbb42ba8c84
+      Hash: 282667935e2e68cb88c2e9ed4333b2f4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Kohde
