@@ -14,10 +14,13 @@ public class SpriteManager : MonoBehaviour
     private string[] SpriteListy;
     private int SpriteLength;
     public TextMeshProUGUI UILog;
+    public TextAsset[] imageAsset;
+    private Texture2D tex;
 
     // Start is called before the first frame update
     void Start(){
         Grid = new GameObject[GameObject.Find("BGRect").transform.childCount - 1];
+        Debug.Log(Grid.Length / 4);
         SpriteStringx = new string[Grid.Length / 4];
         SpriteStringy = new string[Grid.Length / 4];
 
@@ -25,7 +28,10 @@ public class SpriteManager : MonoBehaviour
             Grid[i] = GameObject.FindGameObjectsWithTag("Pala")[i];    
         }
 
-        SpriteLength = Directory.GetFiles("Assets/Resources").Length / 2;
+        SpriteLength = Directory.GetFiles("Resources", "*.png").Length;
+        imageAsset = new TextAsset[SpriteLength];
+        //SpriteLength = Resources.FindObjectsOfTypeAll(typeof(Sprite)).Length;
+        
         SpriteListx = new string[SpriteLength];
         SpriteListy = new string[SpriteLength];
 
@@ -33,10 +39,11 @@ public class SpriteManager : MonoBehaviour
         bool check2 = true;
         int Paikka1 = 0;
         int Paikka2 = 0;
-        foreach (string kuva in Directory.GetFiles("Assets/Resources")){
+        foreach (string kuva in Directory.GetFiles("Resources", "*.png")){
             string[] temp = new string[2];
-            if(kuva.EndsWith(".png")){
-                temp = Path.GetFileNameWithoutExtension(kuva).Split('_');
+            //if(kuva.EndsWith(".png")){
+                temp = kuva.ToString().Split('_');
+                Debug.Log(temp[0] + " " + temp[1]);
                 for (int i = 0; i < SpriteListx.Length; i++){
                     if(SpriteListx[i] == temp[0]){
                         check1 = false;
@@ -55,7 +62,7 @@ public class SpriteManager : MonoBehaviour
                 }
                 check1 = true;
                 check2 = true;
-            }
+            //}
         }
         Paikka1 = 0;
         foreach (string item in SpriteListx){
@@ -120,9 +127,11 @@ public class SpriteManager : MonoBehaviour
         string StringPath;
         foreach (GameObject kortti in Grid){
             StringPath = SpriteStringx[kortti.name[0] - 49] + "_" + SpriteStringy[kortti.name[1] - 49];
-            kortti.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(StringPath);
+            tex = new Texture2D(2, 2);
+            tex.LoadImage(File.ReadAllBytes(StringPath));
+            kortti.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), kortti.transform.GetChild(0).GetComponent<RectTransform>().pivot);/*kortti.transform.GetChild(0).GetComponent<RectTransform>().rect*/
             kortti.GetComponent<Kortti>().KortinNimi = SpriteStringx[kortti.name[0] - 49] + "_" + SpriteStringy[kortti.name[1] - 49];
-            UILog.text += StringPath + " ";
+            //UILog.text += StringPath + " ";
         }
         /*string tempT1;
         foreach (string k1 in SpriteListx){

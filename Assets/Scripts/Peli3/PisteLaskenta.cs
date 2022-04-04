@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.IO;
 
 public class PisteLaskenta : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class PisteLaskenta : MonoBehaviour
         VaraLista = new string[Lista.ToArray().Length];
         VaraLista = Lista.ToArray();
         Lista.RemoveAt(ListaInt);
-        UILause.GetComponent<TextMeshProUGUI>().text = "Etsi " + Vastaus.Replace('_', ' ');
+        UILause.GetComponent<TextMeshProUGUI>().text = "Etsi " + Path.GetFileNameWithoutExtension(Vastaus.Replace('_', ' '));
         UIPisteet.GetComponent<TextMeshProUGUI>().text = Pisteet.ToString();
     }
 
@@ -49,7 +50,7 @@ public class PisteLaskenta : MonoBehaviour
                 VaraLista = new string[Lista.ToArray().Length];
                 VaraLista = Lista.ToArray();
                 Lista.RemoveAt(ListaInt);
-                UILause.GetComponent<TextMeshProUGUI>().text = "Etsi " + Vastaus.Replace('_', ' ');
+                UILause.GetComponent<TextMeshProUGUI>().text = "Etsi " + Path.GetFileNameWithoutExtension(Vastaus.Replace('_', ' '));
             }else{
                 Pisteet++;
                 UIPisteet.GetComponent<TextMeshProUGUI>().text = Pisteet.ToString();

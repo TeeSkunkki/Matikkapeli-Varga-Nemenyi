@@ -443,7 +443,7 @@ ScriptsOnlyBuild:
     className: Text
   - hash:
       serializedVersion: 2
-      Hash: daa99c990fea30675e0392007b3b740d
+      Hash: 5616278296b351ac8935d5001db3727a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpriteManager
