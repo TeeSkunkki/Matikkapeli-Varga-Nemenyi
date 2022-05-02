@@ -29,6 +29,7 @@ public class SpriteManager : MonoBehaviour
         }
 
         SpriteLength = Directory.GetFiles("Resources", "*.png").Length;
+        Debug.Log(Directory.GetFiles("Resources", "*.png").Length + " Kaiffaroinnin pituus");
         imageAsset = new TextAsset[SpriteLength];
         //SpriteLength = Resources.FindObjectsOfTypeAll(typeof(Sprite)).Length;
         
@@ -39,7 +40,9 @@ public class SpriteManager : MonoBehaviour
         bool check2 = true;
         int Paikka1 = 0;
         int Paikka2 = 0;
+        Debug.Log("Aloitetaan kuvien etsintä");
         foreach (string kuva in Directory.GetFiles("Resources", "*.png")){
+            Debug.Log(kuva);
             string[] temp = new string[2];
             //if(kuva.EndsWith(".png")){
                 temp = kuva.ToString().Split('_');
@@ -64,12 +67,14 @@ public class SpriteManager : MonoBehaviour
                 check2 = true;
             //}
         }
+        Debug.Log("Kuvien etsintä valmis, Sprite listan alustaminen");
         Paikka1 = 0;
         foreach (string item in SpriteListx){
             if(item != null){
                 Paikka1++;
             }
         }
+        Debug.Log(Paikka1);
         string[] TempList1 = new string[Paikka1];
         string[] TempList2 = new string[Paikka1];
         
@@ -88,6 +93,7 @@ public class SpriteManager : MonoBehaviour
 
         Paikka1 = 0;
         check1 = true;
+        Debug.Log("Listat alustettu, kuvien valinta");
         for(int a = 0; a < SpriteStringx.Length; a++){
             Paikka1 = Random.Range(0,SpriteListx.Length);
             foreach (int P in K){
@@ -124,9 +130,11 @@ public class SpriteManager : MonoBehaviour
             }
             check1 = true;
         }
+        Debug.Log("Kuvat valittu, kuvien asettaminen kortteihin");
         string StringPath;
         foreach (GameObject kortti in Grid){
             StringPath = SpriteStringx[kortti.name[0] - 49] + "_" + SpriteStringy[kortti.name[1] - 49];
+            Debug.Log(StringPath);
             tex = new Texture2D(2, 2);
             tex.LoadImage(File.ReadAllBytes(StringPath));
             kortti.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), kortti.transform.GetChild(0).GetComponent<RectTransform>().pivot);/*kortti.transform.GetChild(0).GetComponent<RectTransform>().rect*/
@@ -141,5 +149,6 @@ public class SpriteManager : MonoBehaviour
             tempT1 += " " + k1;
         }
         UILog.text = tempT1;*/
+        Debug.Log("SpriteManager Start Done.");
     }
 }

@@ -12,14 +12,38 @@ public class PelaajanValinta : MonoBehaviour
     private int NumeroPaikka;
     public GameObject UILause;
     private GameObject BG;
+    private GameObject[] Lapset;
 
-    void Start(){
-        foreach (Transform child in transform){
-            child.gameObject.SetActive(false);
+    /*void Start(){
+        foreach (GameObject child in Lapset){
+            child.SetActive(false);
         }
+        
+    }*/
+
+    void Awake(){
+        Debug.Log("Pelaajan Valinta start");
+        int LapsetPituus = 0;
+        foreach (var child in transform){
+            LapsetPituus++;
+        }
+        Lapset = new GameObject[LapsetPituus];
+        LapsetPituus = 0;
+        foreach (Transform child in transform){
+            Lapset[LapsetPituus] = child.gameObject;
+            child.gameObject.SetActive(false);
+            LapsetPituus++;
+        }
+        Debug.Log(Lapset.Length);
     }
 
     public void ValitseekoPelaaja(){
+        
+        foreach (GameObject child in Lapset){
+            child.SetActive(true);
+        }
+
+
         BG = GameObject.Find("BG");
         Rect = this.gameObject.GetComponent<RectTransform>();
         NumeroPaikka = 0;
@@ -27,9 +51,7 @@ public class PelaajanValinta : MonoBehaviour
         Debug.Log("kaiffarin pituus " + PalojenNumerot.Length);
         Rect.sizeDelta = new Vector2(0,0);
         BG.SetActive(false);
-        foreach (Transform child in transform){
-            child.gameObject.SetActive(true);
-        }
+        Debug.Log("BG inactive");
     }
 
     public void ValitseNumero(int ValittuNumero){
@@ -57,8 +79,8 @@ public class PelaajanValinta : MonoBehaviour
     void PelaajaOnValinnut(){
         Tarkista.AnnaPaloilleNumerot(Tarkista.Palat, PalojenNumerot);
         BG.SetActive(true);
-        foreach (Transform child in transform){
-            child.gameObject.SetActive(false);
+        foreach (GameObject child in Lapset){
+            child.SetActive(false);
         }
     }
 }

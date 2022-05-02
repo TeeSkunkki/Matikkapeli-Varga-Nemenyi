@@ -16,7 +16,7 @@ public class Tarkista : MonoBehaviour
     public GameObject[] Palat;
     public int Pisteet;
     private int[] PalojenNumerot;
-    public int PalatJoillaNumero = 0;
+    public int PalatJoillaNumero = 3;
     public string[] Vastaukset = new string [1];
     private string[] VaraVastaukset;
     private string Lause;
@@ -28,7 +28,7 @@ public class Tarkista : MonoBehaviour
     private int Numero3;
     private int Ensimmainen = 0;
     private int Viimeinen = 5;
-    private int s = 0;
+    private int s = 0; 
 
     void Awake(){
         SeuraavaTaso = GameObject.Find("Seuraava").GetComponent<SeuraavaTaso>();
@@ -43,15 +43,15 @@ public class Tarkista : MonoBehaviour
     void Alku(){
         Paikat = GameObject.FindGameObjectsWithTag("Paikka");
         NLength = Paikat.Length / 2 + 1;
-        Palat = GameObject.FindGameObjectsWithTag("Pala");
         s = 0;
 
-        foreach (GameObject pala in Palat){
+        /*foreach (GameObject pala in Palat){
             if(!pala.GetComponent<Pala>().Operaattori){
                 PalatJoillaNumero++;
             }
-        } 
+        } */
         Debug.Log("Kaiffarit joilla numero " + PalatJoillaNumero);
+        PalatJoillaNumero = 3;
         PalojenNumerot = new int [PalatJoillaNumero];
 
         NollaaPalojenNumerot();        
@@ -154,6 +154,7 @@ public class Tarkista : MonoBehaviour
     }
 
     public void AnnaPaloilleNumerot(GameObject[] PalaLista, int[] NumeroLista){
+        Debug.Log(NumeroLista.Length + " length");
         for (int i = 0; i < PalaLista.Length; i++){
             if(!PalaLista[i].GetComponent<Pala>().Operaattori){
                 if(NumeroLista[s] != 0){
@@ -447,8 +448,10 @@ public class Tarkista : MonoBehaviour
     }
 
     public void SeuraavatNumerot(){
-        foreach (GameObject Pala in Palat){
-            Pala.GetComponent<Pala>().ResetTransform();
+        foreach (Transform Pala in GameObject.Find("BG/BGRect").transform){
+            if(Pala.gameObject.GetComponent<Pala>() != null){
+                Pala.gameObject.GetComponent<Pala>().ResetTransform();
+            }
         }
         VaraVastaukset = new string [0];
         Vastaukset = new string [0];
@@ -459,7 +462,7 @@ public class Tarkista : MonoBehaviour
         Ensimmainen = 0;
         Viimeinen = 0;
         s = 0;
-        PalatJoillaNumero = 0;
+        //PalatJoillaNumero = 0;
         PelaajanValinta.UILause.GetComponent<TextMeshProUGUI>().text = "";
         UILause.GetComponent<TextMeshProUGUI>().text = "";
         Alku();

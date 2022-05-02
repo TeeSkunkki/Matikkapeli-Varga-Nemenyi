@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Peli3_1.unity
     guid: 1cb838dd7f2dddc40a32511d5ba3355c
+  - enabled: 1
+    path: Assets/Scenes/Peli1_2.unity
+    guid: 2a213ab4810fb0f48a7cb803e659d5ae
   m_configObjects: {}
