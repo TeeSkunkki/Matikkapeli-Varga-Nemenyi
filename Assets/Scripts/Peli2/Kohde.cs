@@ -12,9 +12,9 @@ public class Kohde : MonoBehaviour
     public float Yhteensa = 0f;    //Value joka Slider on nyt
     private float Vali = 0f;        //Value jolla Slider liikkuu lineaarisesti (0-1)
     private float ValiYhteensa = 0f;//Value josta Slider aloittaa liikkumisen
+    public bool KertojaKaytossa = true;
     private int Pos = 10;
     private float Scale;
-    private int LiikkuvaSlider = 0;
     private Color Slidevari;
     private float kerroin = 0f;
     private string[] kaytetyt;
@@ -24,6 +24,7 @@ public class Kohde : MonoBehaviour
     public TextMeshProUGUI Vastaus;
     public TextMeshProUGUI Pisteet;
     public TextMeshProUGUI UIKerroin;
+    public TextMeshProUGUI Placeholdertext;
     public GameObject Seuraava;
     //public TMP_InputField PelaajanVastaus;
 
@@ -32,10 +33,15 @@ public class Kohde : MonoBehaviour
         //YhteensaSlider = gameObject.transform.GetChild(0).GetComponentsInChildren<Slider>();
         Seuraava.SetActive(false);
         kohde = Mathf.Ceil(Random.Range(1f, 17f));
-        kerroin = Mathf.Ceil(Random.Range(0.01f, 11f));
+        if(KertojaKaytossa){
+            kerroin = Mathf.Ceil(Random.Range(0.01f, 11f));
+        }else{
+            kerroin = 1f;
+        }
         UIKerroin.text = kerroin.ToString();
         YhteensaSlider = new Slider[11];
         Vastaus.text = (kohde * kerroin).ToString() + " =";
+        Placeholdertext.text = "tee lasku joka on yhteensä " + (kohde * kerroin).ToString();
         for (int i = 0; i < gameObject.transform.GetComponentsInChildren<Canvas>().Length; i++){
             YhteensaSlider[i] = gameObject.transform.GetChild(i).GetChild(0).GetComponent<Slider>();
             YhteensaSlider[i].maxValue = kohde;
@@ -55,6 +61,7 @@ public class Kohde : MonoBehaviour
         UIKerroin.text = kerroin.ToString();
         YhteensaSlider = new Slider[11];
         Vastaus.text = (kohde * kerroin).ToString() + " =";
+        Placeholdertext.text = "tee lasku joka on yhteensä " + (kohde * kerroin).ToString();
         for (int i = 0; i < gameObject.transform.GetComponentsInChildren<Canvas>().Length; i++){
             YhteensaSlider[i] = gameObject.transform.GetChild(i).GetChild(0).GetComponent<Slider>();
             YhteensaSlider[i].maxValue = kohde;
@@ -116,6 +123,9 @@ public class Kohde : MonoBehaviour
                         return;
                 }
             }
+            if(numero == "0"){
+                check = false;
+            }
             /*foreach (string kaytetty in kaytetyt){
                 if(kaytetty == numero){
                     check = false;
@@ -141,7 +151,7 @@ public class Kohde : MonoBehaviour
                 }
             }
             TempInt = int.Parse(Pisteet.text);
-            TempInt += KaytetytLauseet.Length;
+            TempInt += KaytetytLauseet.Length - 1;
             Pisteet.text = TempInt.ToString();
         }
     }

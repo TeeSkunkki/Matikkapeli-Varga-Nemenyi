@@ -19,7 +19,7 @@ public class PisteLaskenta : MonoBehaviour
     private int ListaInt;
 
     // Start is called before the first frame update
-    void Start(){
+    public void KuvatJoitaEtsitaan(){
         Seuraava = GameObject.Find("Seuraava");
         Seuraava.SetActive(false);
         Lista = new List<string>();
