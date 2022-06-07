@@ -43,7 +43,7 @@ public class OnlineKuvat : MonoBehaviour
 
     public IEnumerator GetSarjat(string uri)
     {
-        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri+"/Kuvat"))
         {
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
@@ -51,6 +51,8 @@ public class OnlineKuvat : MonoBehaviour
                 Debug.Log("Palvelimelta ei löytynyt kuvasarjoja");
             }
             string temp = webRequest.downloadHandler.text;
+            if(webRequest.result != UnityWebRequest.Result.Success)
+            Debug.Log(webRequest.error);
             temp = temp.Replace('"', '§');
             temp = temp.Replace("§", "");
             temp = temp.Remove(0, 1);
@@ -66,7 +68,7 @@ public class OnlineKuvat : MonoBehaviour
 
     public IEnumerator GetKuvat(string uri)
     {
-        using (UnityWebRequest webRequest = UnityWebRequest.Get(url+"/"+uri+"/"))
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(url+"/Kuvat/"+uri+"/"))
         {
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
@@ -74,6 +76,8 @@ public class OnlineKuvat : MonoBehaviour
                 Debug.Log("Kuvasarjasta ei löytynyt kuvia");
             }
             string temp = webRequest.downloadHandler.text;
+            if(webRequest.result != UnityWebRequest.Result.Success)
+            Debug.Log(webRequest.error);
             temp = temp.Replace('"', '§');
             temp = temp.Replace("§", "");
             temp = temp.Remove(0, 1);
@@ -84,8 +88,8 @@ public class OnlineKuvat : MonoBehaviour
         }
     }
 
-    public IEnumerator LataaKuva(string kuvannimi){
-        using (UnityWebRequest webRequest = UnityWebRequest.Get("localhost:49011/KaikkiKuvat/KuvaSet1/" + kuvannimi))
+    public IEnumerator LataaKuva(string kuvannimi, string uri){
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(url+"/KaikkiKuvat/"+uri+"/"+kuvannimi))
         {
             //jotta webRequest lataa kuvan
             DownloadHandlerTexture texDl = new DownloadHandlerTexture(true);

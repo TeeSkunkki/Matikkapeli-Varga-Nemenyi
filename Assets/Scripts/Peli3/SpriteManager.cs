@@ -81,7 +81,8 @@ public class SpriteManager : MonoBehaviour
         
         Debug.Log(SpriteListx.Length + " SpriteListx Length");
         if(KuvaSarjaValinta.value != 0){
-            StartCoroutine(KuvienOnlineEtsinta(KuvaSarjaValinta.options[KuvaSarjaValinta.value].text));
+            kuvasarja = KuvaSarjaValinta.options[KuvaSarjaValinta.value].text;
+            StartCoroutine(KuvienOnlineEtsinta(kuvasarja));
             yield return new WaitWhile(() => SpriteListx[SpriteListx.Length - 1] == null);
             Debug.Log("Kuvien online etsintä valmis");
 
@@ -196,7 +197,7 @@ public class SpriteManager : MonoBehaviour
             Debug.Log(StringPath);
             tex = new Texture2D(2, 2);
             OnlineKuvat.RequestDone = false;
-            StartCoroutine(OnlineKuvat.LataaKuva(StringPath));
+            StartCoroutine(OnlineKuvat.LataaKuva(StringPath, kuvasarja));
             yield return new WaitWhile(() => !OnlineKuvat.RequestDone);
             tex = OnlineKuvat.kuvaTexture;
             kortti.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), kortti.transform.GetChild(0).GetComponent<RectTransform>().pivot);/*kortti.transform.GetChild(0).GetComponent<RectTransform>().rect*/
